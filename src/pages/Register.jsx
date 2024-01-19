@@ -44,10 +44,9 @@ const Register=()=> {
                <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg"
                type={(passwordEye === false) ? 'password':'text'} placeholder=' enter password' name='password'/>
                
-               <div className='absoulte right-2 top-3'>
-                 {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye}
-                 className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye } className='text-gray-400'/>}
-               </div>
+               <div className='absolute right-2 top-3'>
+                  {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye} className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye} className='text-gray-400'/>}
+                </div>
             </div>
          </div>
          <div className='md:my-4'>
@@ -56,10 +55,9 @@ const Register=()=> {
                         <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg" 
                         type={(passwordEye === false) ? 'Cornfrim password' : 'text'} placeholder='Cornfrim password' name='password'/>
 
-                        <div className='absoulte right-2 top-3'>
-                        {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye}
-                         className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye } className='text-gray-400'/>}
-                       </div>
+                <div className='absolute right-2 top-3'>
+                  {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye} className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye} className='text-gray-400'/>}
+                </div>
                     </div>
                 </div>
                 </div>
