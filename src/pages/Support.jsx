@@ -1,8 +1,11 @@
 import React from 'react'
+import Inner_support from '../Innerpages/Inner_support'
 
 const Support=()=> {
   return (
-    <div>Support</div>
+    <div>
+      <Inner_support/>
+    </div>
   )
 }
 

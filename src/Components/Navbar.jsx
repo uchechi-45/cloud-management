@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoMdClose } from "react-icons/io";
 import { IoMenuSharp } from "react-icons/io5";
-// import logo from './assets/logo-removebg-preview(1).png'
+// import logo from './assets/logo-removebg-preview(1).p
 import logo from '../assets/cloudd.png'
 import { Link } from 'react-router-dom';
 
