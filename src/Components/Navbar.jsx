@@ -35,7 +35,7 @@ const Navbar=()=> {
         <Link to={'/'}><li>Home</li></Link>
         <Link to={'/about'}><li>About</li></Link>
         <Link to={'/support'}><li>Support</li></Link>
-        <Link to={'/platform'}><li>Platform</li></Link>
+        <Link to={'/contact'}><li>Contact</li></Link>
         <Link to={'/pricing'}><li>Pricing</li></Link>
            
          </ul>
@@ -54,7 +54,7 @@ const Navbar=()=> {
        <Link to={'/'}><li className='border-b-2 py-3 border-black-300 w-full'>Home</li></Link>
       <Link to={'/about'}><li className='border-b-2 py-3 border-black-300 w-full'>About</li></Link>
       <Link to={'/support'}><li className='border-b-2 py-3 border-black-300 w-full'>Support</li></Link>
-       <Link to={'/platform'}><li className='border-b-2 py-3 border-black-300 w-full'>Platform</li></Link>
+       <Link to={'/contact'}><li className='border-b-2 py-3 border-black-300 w-full'>contact</li></Link>
      <Link to={'/pricing'}><li className='border-b-2 py-3 border-black-300 w-full'>Pricing</li></Link> 
 
 <div className='flex flex-col my-4'>

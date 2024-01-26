@@ -5,11 +5,11 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Support from './pages/Support'
-import Platform from './pages/Platform'
+
 import Pricing from './pages/Pricing'
 import Register from './pages/Register'
 import Login from './pages/Login'
-
+import Contact from './pages/Contact'
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
        <Route path='/'element={<Home/>} />
        <Route path='/about'element={<About/>} />
        <Route path='/support'element={<Support/>} />
-       <Route path='/platform'element={<Platform/>} />
+       <Route path='/contact'element={<Contact/>} />
        <Route path='/pricing'element={<Pricing/>} />
        <Route path='/login'element={<Login/>} />
        <Route path='/register'element={<Register/>} />
