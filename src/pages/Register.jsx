@@ -1,16 +1,39 @@
-import React from 'react'
+import { useState } from 'react';
 import {AiOutlineMail, AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
 import {FcGoogle} from 'react-icons/fc';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link , useNavigate} from 'react-router-dom';
+import { auth, provider } from '../Firebase/firebaseconfig';
+import { signInWithPopup } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { createUserWithEmailAndPassword,updateProfile } from 'firebase/auth';
 
-const Register=()=> {
+
+const initialState ={
+  name: '',
+  email: '',
+  password :'',
+  password2:''
+ };
+
+const Register=({setiAuth})=> {
+
+
+  const [formValue,setFormValue] =useState(initialState);
+  const {name,email,password,password2} =formValue;
+
+
+  const onInputChangen = (e)=>{
+    setFormValue({...formValue, [e.target.name]: e.target.value})
+  }
+
+
   const [passwordEye, setPasswordEye] = useState(false);
 
      // //func... for password 
     const handlePasswordEye = () => {
     setPasswordEye(!passwordEye)
      }
+
 
   return (
     <div className='pt-[8vh]'>
@@ -24,7 +47,7 @@ const Register=()=> {
              <label>Username</label>
              <div className='my-2 w-full relative'>
                  <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg"
-                        type='username' placeholder=' Enter username' name='username'/>
+                        type='username' placeholder=' Enter username' name='name' value={name} onChange={onInputChangen}/>
              </div>
             </div>
 
@@ -32,7 +55,7 @@ const Register=()=> {
             <label>Email Address</label>
             <div className='my-2 w-full relative'>
               <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg" 
-               type='email' placeholder='email address' name='email'/>
+               type='email' placeholder='email address' name='email' value={email} onChange={onInputChangen}/>
                 <AiOutlineMail className='absolute right-2 top-3 text-gray-400' />
               </div>
                </div>
@@ -42,7 +65,7 @@ const Register=()=> {
                <label>Password</label>
                <div className='my-2 w-full relative'>
                <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg"
-               type={(passwordEye === false) ? 'password':'text'} placeholder=' enter password' name='password'/>
+               type={(passwordEye === false) ? 'password':'text'} placeholder=' enter password' name='password' value={password} onChange={onInputChangen}/>
                
                <div className='absolute right-2 top-3'>
                   {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye} className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye} className='text-gray-400'/>}
@@ -53,7 +76,7 @@ const Register=()=> {
                     <label>Cornfrim Password</label>
                     <div className='my-2 w-full relative'>
                         <input className="w-full p-2 border border-gray-400 bg-transparent rounded-lg" 
-                        type={(passwordEye === false) ? 'Cornfrim password' : 'text'} placeholder='Cornfrim password' name='password'/>
+                        type={(passwordEye === false) ? 'Cornfrim password' : 'text'} placeholder='Cornfrim password' name='password2' value={password2} onChange={onInputChangen}/>
 
                 <div className='absolute right-2 top-3'>
                   {(passwordEye === false) ? <AiFillEyeInvisible onClick={handlePasswordEye} className='text-gray-400'/> : <AiFillEye onClick={handlePasswordEye} className='text-gray-400'/>}
