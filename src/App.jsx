@@ -17,11 +17,11 @@ import { auth } from './Firebase/firebaseconfig'
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [isAuth,setisAuth] = useState(localStorage.getItem('ISAuthorised'));
+  const [isAuth,setisAuth] = useState(localStorage.getItem('IsAuthorised'));
 
 
   useEffect(()=>{
-    auth.onAuthStateChanged(()=>{
+    auth.onAuthStateChanged((authUser)=>{
       if (authUser){
         setUser(authUser);
       }else{
@@ -33,6 +33,9 @@ const App = () => {
   return (
     
      <Router>
+
+      <ToastContainer/>
+
       <Navbar/>
       <Routes>
        <Route path='/'element={<Home/>} />
@@ -40,7 +43,7 @@ const App = () => {
        <Route path='/support'element={<Support/>} />
        <Route path='/contact'element={<Contact/>} />
        <Route path='/pricing'element={<Pricing/>} />
-       <Route path='/login'element={<Login/>} />
+       <Route path='/login'element={<Login  setisAuth={setisAuth} setUser={setUser} />} />
        <Route path='/register'element={<Register setisAuth={setisAuth}  />} />
       </Routes>
      </Router>
