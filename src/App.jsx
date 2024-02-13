@@ -6,7 +6,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Support from './pages/Support'
 
-import Pricing from './pages/Pricing'
+
+import Platform from './pages/platform'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Contact from './pages/Contact'
@@ -42,7 +43,7 @@ const App = () => {
        <Route path='/about'element={<About/>} />
        <Route path='/support'element={<Support/>} />
        <Route path='/contact'element={<Contact/>} />
-       <Route path='/pricing'element={<Pricing/>} />
+       <Route path='/platform'element={<Platform/>} />
        <Route path='/login'element={<Login  setisAuth={setisAuth} setUser={setUser} />} />
        <Route path='/register'element={<Register setisAuth={setisAuth}  />} />
       </Routes>

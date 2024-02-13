@@ -36,7 +36,7 @@ const Navbar=()=> {
         <Link to={'/about'}><li>About</li></Link>
         <Link to={'/support'}><li>Support</li></Link>
         <Link to={'/contact'}><li>Contact</li></Link>
-        <Link to={'/pricing'}><li>Pricing</li></Link>
+        <Link to={'/platform'}><li>platform</li></Link>
            
          </ul>
         </div>
@@ -46,7 +46,7 @@ const Navbar=()=> {
          </div>
 
          <div className='md:hidden mr-4' onClick={handlclick}> 
-         {nav ? <IoMenuSharp size={25}/>: <IoMdClose size={25}/>}
+         {!nav ? <IoMenuSharp size={25}/>: <IoMdClose size={25}/>}
 
          </div>
       </div>
@@ -55,7 +55,7 @@ const Navbar=()=> {
       <Link to={'/about'}><li className='border-b-2 py-3 border-black-300 w-full'>About</li></Link>
       <Link to={'/support'}><li className='border-b-2 py-3 border-black-300 w-full'>Support</li></Link>
        <Link to={'/contact'}><li className='border-b-2 py-3 border-black-300 w-full'>contact</li></Link>
-     <Link to={'/pricing'}><li className='border-b-2 py-3 border-black-300 w-full'>Pricing</li></Link> 
+     <Link to={'/platform'}><li className='border-b-2 py-3 border-black-300 w-full'>platform</li></Link> 
 
 <div className='flex flex-col my-4'>
   <button className='bg-[#201f1f] text-[#eedfdf] px-8 py-3 mb-4 rounded-2xl'>Login</button>

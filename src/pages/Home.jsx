@@ -5,6 +5,7 @@ import Home_innerpagethree from '../Innerpages/Home_innerpagethree'
 import Home_innerpagefour from '../Innerpages/Home_innerpagefour'
 import Home_innerpagefive from '../Innerpages/Home_innerpagefive'
 import Footer from '../Components/Footer'
+import Inner_platform from '../Innerpages/Inner_platform'
 
 
 const Home=()=> {
