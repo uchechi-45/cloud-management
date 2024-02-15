@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {auth,db} from '../Firebase/firebaseconfig';
 import { addDoc,collection,getDoc,serverTimestamp,doc,updateDoc } from 'firebase/firestore';
-import { useNavigate,useParams } from 'react-router-dom';
+import { Navigate, useNavigate,useParams } from 'react-router-dom';
 import {FaBaby,FaRegAddressCard} from 'react-icons/fa';
 import {GrLocation} from 'react-icons/gr';
 import {CgProfile} from 'react-icons/cg'
@@ -45,6 +45,9 @@ const initialState={
 
 const Inner_platform=()=> {
 
+    const Navigate = useNavigate();
+    
+
     const [formValue,setFormValue]= useState(initialState);
 
     const {First_name,Last_name,Permanent_Address,LAG,Date_of_Birth,Phone_number,Gender,State_of_origin,City
@@ -65,6 +68,35 @@ const Inner_platform=()=> {
     const onCategoryChange_two= (e)=>{
         setFormValue({...formValue,Gender:e.target.value});
     };
+    const handleSubmit =async(e)=>{
+        e.preventDefault();
+
+        if (First_name === '' || Last_name ==='' || Permanent_Address === '' || LAG === '' ||Date_of_Birth === ''
+         || Phone_number ==='' || Gender === '' || State_of_origin === '' || City === '')
+          {
+          toast.error ('please fill in the input filed')   
+        } else {
+           try {
+            await addDoc(collection(db,'BirthDate'),{
+                User : {
+                  name : auth.currentUser.displayName,
+                  email : auth.currentUser.email,
+                  id :  auth.currentUser.uid
+                },
+                ...formValue,
+                timestamp:serverTimestamp()
+            })
+            Navigate('/dashboard')
+            toast.success('submitted successfully')
+
+           } catch (error) {
+            console.log (error)
+            
+           }
+            
+        }
+
+    }
 
 
 
@@ -73,7 +105,7 @@ const Inner_platform=()=> {
         <div className='dark:bg-[#e8edea] px-10 py-8 rounded-lg text-black'>
 
             <h1 className='text-2xl font-bold text-gray-800 mb-4'>cloud Registration</h1>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <div className='grid md:grid-cols-2 md:gap-8'>
 
                     <div className='md:my-4'>
@@ -144,7 +176,7 @@ const Inner_platform=()=> {
                         <input className='w-full p-2 border border-gray-400 bg-transparent rounded-lg'
                             type="date" 
                             placeholder ="dd/mm/yyyy"
-                            name='Date-of-Birth' 
+                            name='Date_of_Birth' 
                             value={Date_of_Birth}
                             onChange={onInputchange}
                             />
@@ -209,9 +241,8 @@ const Inner_platform=()=> {
                         </select>
                         </div>
                     </div>
-
-
               </div>
+              <button type='submit' className='w-full my-4 md:my-2 p-3 bg-[#02020f] text-white rounded-lg font-semibold'>submit</button>
 
                     
                 
